@@ -10,35 +10,41 @@
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            @apply bg-slate-100 text-slate-700; /* Lightened background for better contrast */
         }
         .nav-link {
-            @apply px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white;
+            @apply px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors duration-150;
         }
         .nav-link-active {
-            @apply bg-gray-900 text-white;
+            @apply bg-sky-600 text-white;
         }
         .section-title {
-            @apply text-3xl font-bold text-gray-800 mb-8 border-b-2 border-indigo-500 pb-2;
+            @apply text-3xl md:text-4xl font-bold text-slate-800 mb-10 md:mb-12 border-b-2 border-sky-500 pb-3; /* Responsive font size */
         }
         .card {
-            @apply bg-white shadow-lg rounded-lg p-6 mb-6 transition-transform transform hover:scale-105;
+            @apply bg-white shadow-xl rounded-lg p-6 md:p-8 mb-8 transition-all duration-300 ease-in-out transform hover:scale-[1.02] hover:shadow-2xl overflow-hidden; /* Added overflow-hidden for image rounding */
         }
         .tag {
-            @apply inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded-full;
+            @apply inline-block bg-sky-100 text-sky-700 text-xs font-semibold mr-2 mb-2 px-3 py-1 rounded-full;
         }
-        /* Basic styling for content area to prevent overlap with fixed header */
         #content-area {
-            padding-top: 4rem; /* Adjust based on header height */
+            padding-top: 5rem; 
+        }
+        .button-primary {
+            @apply bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:shadow-lg hover:-translate-y-0.5; /* Added subtle hover effect */
+        }
+        .project-image {
+            @apply w-full h-48 object-cover rounded-md mb-6 shadow-md; /* Styling for project images */
         }
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-slate-100">
 
-    <header class="bg-gray-800 text-white fixed w-full top-0 z-50 shadow-md">
+    <header class="bg-slate-800 text-white fixed w-full top-0 z-50 shadow-lg">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <a href="#" class="text-2xl font-bold text-indigo-400" onclick="showPage('home')">Pranav Shukla</a>
+                    <a href="#" class="text-2xl font-bold text-sky-400 hover:text-sky-300 transition-colors" onclick="showPage('home')">Pranav Shukla</a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
@@ -49,7 +55,7 @@
                     </div>
                 </div>
                 <div class="-mr-2 flex md:hidden">
-                    <button type="button" id="mobile-menu-button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                    <button type="button" id="mobile-menu-button" class="bg-slate-800 inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -63,108 +69,108 @@
         </nav>
         <div class="md:hidden hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#" class="nav-link block" onclick="showPage('home'); closeMobileMenu();">Home</a>
-                <a href="#" class="nav-link block" onclick="showPage('resume'); closeMobileMenu();">Resume</a>
-                <a href="#" class="nav-link block" onclick="showPage('projects'); closeMobileMenu();">Projects</a>
-                <a href="#" class="nav-link block" onclick="showPage('contact'); closeMobileMenu();">Contact</a>
+                <a href="#" class="nav-link block hover:bg-slate-700" onclick="showPage('home'); closeMobileMenu();">Home</a>
+                <a href="#" class="nav-link block hover:bg-slate-700" onclick="showPage('resume'); closeMobileMenu();">Resume</a>
+                <a href="#" class="nav-link block hover:bg-slate-700" onclick="showPage('projects'); closeMobileMenu();">Projects</a>
+                <a href="#" class="nav-link block hover:bg-slate-700" onclick="showPage('contact'); closeMobileMenu();">Contact</a>
             </div>
         </div>
     </header>
 
-    <main id="content-area" class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <section id="home" class="page min-h-screen flex items-center justify-center text-center px-4">
-            <div class="bg-white p-10 md:p-16 rounded-xl shadow-2xl">
-                <img src="https://placehold.co/150x150/E2E8F0/A0AEC0?text=PS" alt="Pranav Shukla" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 border-4 border-indigo-500">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-3">Pranav Shukla</h1>
-                <p class="text-xl md:text-2xl text-indigo-600 mb-6">M.S. Mechatronics and Robotics Student | Aspiring Innovator</p>
-                <p class="text-md md:text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+    <main id="content-area" class="max-w-7xl mx-auto py-8 sm:px-6 lg:px-8">
+        <section id="home" class="page min-h-[calc(100vh-5rem)] flex items-center justify-center text-center px-4 py-12">
+            <div class="bg-white p-10 md:p-16 rounded-xl shadow-2xl max-w-3xl">
+                <img src="https://placehold.co/150x150/E0F2FE/0EA5E9?text=PS&font=inter" alt="Pranav Shukla" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-8 border-4 border-sky-500 shadow-lg">
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Pranav Shukla</h1>
+                <p class="text-xl md:text-2xl text-sky-600 mb-8">M.S. Mechatronics and Robotics Student | Aspiring Innovator</p>
+                <p class="text-md md:text-lg text-slate-600 max-w-2xl mx-auto mb-10">
                     Passionate about robotics, AI, and developing intelligent systems. Currently pursuing my Master's at NYU Tandon, building upon a strong foundation in engineering and computer science from IIT Kharagpur.
                 </p>
-                <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300" onclick="showPage('resume')">
+                <button class="button-primary" onclick="showPage('resume')">
                     View My Resume
                 </button>
             </div>
         </section>
 
-        <section id="resume" class="page hidden px-4">
-            <h2 class="section-title">Resume</h2>
+        <section id="resume" class="page hidden px-4 py-8">
+            <h2 class="section-title">My Resume</h2>
 
             <div class="card">
-                <h3 class="text-2xl font-semibold text-gray-700 mb-4">Education</h3>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-6">Education</h3>
                 <div class="mb-6">
-                    <h4 class="text-xl font-medium text-indigo-700">New York University Tandon School of Engineering</h4>
-                    <p class="text-gray-600">M.S. Mechatronics and Robotics (2024 - Present)</p>
-                    <p class="text-gray-500 text-sm">Brooklyn, NYC</p>
+                    <h4 class="text-xl font-medium text-sky-700">New York University Tandon School of Engineering</h4>
+                    <p class="text-slate-600">M.S. Mechatronics and Robotics (2024 - Present)</p>
+                    <p class="text-slate-500 text-sm">Brooklyn, NYC</p>
                 </div>
                 <div>
-                    <h4 class="text-xl font-medium text-indigo-700">Indian Institute of Technology Kharagpur</h4>
-                    <p class="text-gray-600">B.Tech and M.Tech (Dual Degree) in Structural Engineering</p>
-                    <p class="text-gray-500 text-sm">Minors: Computer Science and Engineering; Embedded Control, Software and Design (2017 - 2022)</p>
+                    <h4 class="text-xl font-medium text-sky-700">Indian Institute of Technology Kharagpur</h4>
+                    <p class="text-slate-600">B.Tech and M.Tech (Dual Degree) in Structural Engineering</p>
+                    <p class="text-slate-500 text-sm">Minors: Computer Science and Engineering; Embedded Control, Software and Design (2017 - 2022)</p>
                 </div>
             </div>
 
             <div class="card">
-                <h3 class="text-2xl font-semibold text-gray-700 mb-4">Skills</h3>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-6">Core Competencies</h3>
                 <div>
-                    <p class="mb-2"><strong class="text-indigo-600">Languages:</strong> <span class="tag">Python</span> <span class="tag">Bash</span> <span class="tag">C++</span> <span class="tag">VBA</span> <span class="tag">SQL</span> <span class="tag">APL</span> <span class="tag">XML</span> <span class="tag">JS</span></p>
-                    <p class="mb-2"><strong class="text-indigo-600">Development:</strong> <span class="tag">Git</span> <span class="tag">CV2</span> <span class="tag">React/Native</span> <span class="tag">Selenium</span> <span class="tag">Fenics</span> <span class="tag">ROS</span></p>
-                    <p class="mb-2"><strong class="text-indigo-600">Machine Learning:</strong> <span class="tag">SAS</span> <span class="tag">Tableau</span> <span class="tag">Big Data</span> <span class="tag">OpenAI API</span> <span class="tag">Pytorch</span> <span class="tag">Pydantic AI</span> <span class="tag">VLA</span> <span class="tag">Ollama</span> <span class="tag">CrewAI</span> <span class="tag">Autogen</span></p>
-                    <p class="mb-2"><strong class="text-indigo-600">Hardware:</strong> <span class="tag">Mechatronics</span> <span class="tag">Control Systems</span> <span class="tag">Prototyping</span></p>
-                    <p><strong class="text-indigo-600">Platforms:</strong> <span class="tag">MATLAB</span> <span class="tag">Solidworks</span> <span class="tag">Gazebo</span> <span class="tag">Abaqus</span> <span class="tag">Staad</span> <span class="tag">Verilog</span> <span class="tag">Arduino</span> <span class="tag">Raspian</span> <span class="tag">MS Office</span></p>
+                    <p class="mb-3"><strong class="text-sky-600 font-semibold">Languages:</strong> <span class="tag">Python</span> <span class="tag">Bash</span> <span class="tag">C++</span> <span class="tag">VBA</span> <span class="tag">SQL</span> <span class="tag">APL</span> <span class="tag">XML</span> <span class="tag">JS</span></p>
+                    <p class="mb-3"><strong class="text-sky-600 font-semibold">Development:</strong> <span class="tag">Git</span> <span class="tag">CV2</span> <span class="tag">React/Native</span> <span class="tag">Selenium</span> <span class="tag">Fenics</span> <span class="tag">ROS</span></p>
+                    <p class="mb-3"><strong class="text-sky-600 font-semibold">Machine Learning:</strong> <span class="tag">SAS</span> <span class="tag">Tableau</span> <span class="tag">Big Data</span> <span class="tag">OpenAI API</span> <span class="tag">Pytorch</span> <span class="tag">Pydantic AI</span> <span class="tag">VLA</span> <span class="tag">Ollama</span> <span class="tag">CrewAI</span> <span class="tag">Autogen</span></p>
+                    <p class="mb-3"><strong class="text-sky-600 font-semibold">Hardware:</strong> <span class="tag">Mechatronics</span> <span class="tag">Control Systems</span> <span class="tag">Prototyping</span></p>
+                    <p><strong class="text-sky-600 font-semibold">Platforms:</strong> <span class="tag">MATLAB</span> <span class="tag">Solidworks</span> <span class="tag">Gazebo</span> <span class="tag">Abaqus</span> <span class="tag">Staad</span> <span class="tag">Verilog</span> <span class="tag">Arduino</span> <span class="tag">Raspian</span> <span class="tag">MS Office</span></p>
                 </div>
             </div>
 
             <div class="card">
-                <h3 class="text-2xl font-semibold text-gray-700 mb-4">Experience</h3>
-                <div class="mb-6">
-                    <h4 class="text-xl font-medium text-indigo-700">Graduate Adjunct - Automatic Control Lab</h4>
-                    <p class="text-gray-600">New York University Tandon School of Engineering (2025 - Present)</p>
-                    <ul class="list-disc list-inside text-gray-600 mt-2">
+                <h3 class="text-2xl font-semibold text-slate-700 mb-6">Professional Experience</h3>
+                <div class="mb-8 pb-6 border-b border-slate-200 last:border-b-0 last:pb-0 last:mb-0">
+                    <h4 class="text-xl font-medium text-sky-700">Graduate Adjunct - Automatic Control Lab</h4>
+                    <p class="text-slate-600">New York University Tandon School of Engineering (2025 - Present)</p>
+                    <ul class="list-disc list-inside text-slate-600 mt-3 space-y-1">
                         <li>Teaching ME-UY 3411 covering experiments across Data acquisition, PID, LQR controls and real time system analysis.</li>
                     </ul>
-                    <p class="mt-2">
+                    <p class="mt-3">
                         <span class="tag">Matlab</span> <span class="tag">Simulink</span> <span class="tag">PID Control</span> <span class="tag">LQR Control</span> <span class="tag">Systems Analysis</span>
                     </p>
                 </div>
-                <div class="mb-6">
-                    <h4 class="text-xl font-medium text-indigo-700">Business Analyst - Business Intelligence Unit</h4>
-                    <p class="text-gray-600">Axis Bank, Mumbai (2022 - 2024)</p>
-                    <ul class="list-disc list-inside text-gray-600 mt-2">
+                <div class="mb-8 pb-6 border-b border-slate-200 last:border-b-0 last:pb-0 last:mb-0">
+                    <h4 class="text-xl font-medium text-sky-700">Business Analyst - Business Intelligence Unit</h4>
+                    <p class="text-slate-600">Axis Bank, Mumbai (2022 - 2024)</p>
+                    <ul class="list-disc list-inside text-slate-600 mt-3 space-y-1">
                         <li>Developed pre-qualified banking product strategies using customer demographics, delinquency and bureau credit data; managed monthly releases, performance tracking dashboards, and automation pipeline.</li>
                         <li>Ran simulations to identify database enhancements, then worked with Business, DE, DS, and Risk teams for actualization.</li>
                     </ul>
-                     <p class="mt-2">
+                     <p class="mt-3">
                         <span class="tag">SAS</span> <span class="tag">SQL</span> <span class="tag">Data Analytics</span> <span class="tag">Big Data</span> <span class="tag">Version Control</span> <span class="tag">Automata</span>
                     </p>
                 </div>
-                <div class="mb-6">
-                    <h4 class="text-xl font-medium text-indigo-700">Data Science Intern - Business Intelligence Unit</h4>
-                    <p class="text-gray-600">Axis Bank, Mumbai (2021 - 2021)</p>
-                    <ul class="list-disc list-inside text-gray-600 mt-2">
+                <div class="mb-8 pb-6 border-b border-slate-200 last:border-b-0 last:pb-0 last:mb-0">
+                    <h4 class="text-xl font-medium text-sky-700">Data Science Intern - Business Intelligence Unit</h4>
+                    <p class="text-slate-600">Axis Bank, Mumbai (2021 - 2021)</p>
+                    <ul class="list-disc list-inside text-slate-600 mt-3 space-y-1">
                         <li>Implemented and validated 3 machine learning models (DT, MLP, Random Forest) for credit score prediction, optimized for biased datasets, ensuring accurate risk assessment and performance tracking using alternative data streams.</li>
                     </ul>
-                    <p class="mt-2">
+                    <p class="mt-3">
                         <span class="tag">Python</span> <span class="tag">Tensorflow</span> <span class="tag">Numpy</span> <span class="tag">Big Data</span> <span class="tag">Jupyter</span>
                     </p>
                 </div>
-                <div>
-                    <h4 class="text-xl font-medium text-indigo-700">Embedded Team Head - Swarm Robotics Research Group</h4>
-                    <p class="text-gray-600">IIT Kharagpur (2019 - 2022)</p>
-                    <ul class="list-disc list-inside text-gray-600 mt-2">
+                <div class="last:border-b-0 last:pb-0 last:mb-0"> 
+                    <h4 class="text-xl font-medium text-sky-700">Embedded Team Head - Swarm Robotics Research Group</h4>
+                    <p class="text-slate-600">IIT Kharagpur (2019 - 2022)</p>
+                    <ul class="list-disc list-inside text-slate-600 mt-3 space-y-1">
                         <li>Deployed decentralised algorithms on 10 Kilobots by K-team such as, alloting ID, shape formation and segregation.</li>
                         <li>Designed prototypes for self assembling modular bots that can autonomously assemble/dissemble adding functionality.</li>
                         <li>Implemented ad-hoc networking for routerless P2P transmission and mesh routing protocols (BATMAN, OLSR) to enable automated rerouting in response to architecture changes like signal loss or node addition/removal.</li>
                         <li>Led the Embedded team and oversaw the Deployment of electronic and mechanical stack for vision-based swarm-bots.</li>
                     </ul>
-                    <p class="mt-2">
+                    <p class="mt-3">
                         <span class="tag">ROS</span> <span class="tag">Arduino</span> <span class="tag">Linux</span> <span class="tag">Control Systems</span> <span class="tag">Computer Vision</span> <span class="tag">Simulation</span> <span class="tag">Mechatronics</span>
                     </p>
                 </div>
             </div>
 
              <div class="card">
-                <h3 class="text-2xl font-semibold text-gray-700 mb-4">Extracurricular Activities</h3>
-                 <ul class="list-disc list-inside text-gray-600 space-y-2">
+                <h3 class="text-2xl font-semibold text-slate-700 mb-6">Extracurricular & Leadership</h3>
+                 <ul class="list-disc list-inside text-slate-600 space-y-3">
                     <li>Teaching Assistant for Courses: Monte Carlo Simulations and course: Construction, Planning and Management.</li>
                     <li>Governor - Technology Literary Society, IIT KGP - Led a society of 80+ students, Editor of the campus magazine, Alankar.</li>
                     <li>Captain of Product Design Team IIT KGP GC, 2019-2020.</li>
@@ -174,96 +180,111 @@
             </div>
         </section>
 
-        <section id="projects" class="page hidden px-4">
+        <section id="projects" class="page hidden px-4 py-8">
             <h2 class="section-title">Projects & Competitions</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="space-y-12"> {/* Increased spacing between project cards */}
                 <div class="card">
-                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">Embodied AI Mobile Manipulator</h3>
-                    <p class="text-gray-600 mb-3 text-sm">(Agentic Framework, VLA)</p>
-                    <p class="text-gray-600 mb-4">Developed a mobile manipulator with a lift and differential drive, controlled by a vision-language model. The agent framework can create, schedule, and execute new tasks based on user text input. (Segmented VLA).</p>
-                    <a href="#" class="text-indigo-500 hover:text-indigo-700 font-medium">DEMO Video (Placeholder) &rarr;</a>
+                    <img src="https://placehold.co/600x400/0EA5E9/FFFFFF?text=AI+Mobile+Manipulator&font=inter" alt="Embodied AI Mobile Manipulator" class="project-image">
+                    <h3 class="text-2xl font-semibold text-sky-700 mb-2">Embodied AI Mobile Manipulator</h3>
+                    <p class="text-slate-500 mb-3 text-sm font-medium">(Agentic Framework, Vision Language Models)</p>
+                    <p class="text-slate-600 mb-4 leading-relaxed">Developed a mobile manipulator with a lift and differential drive, controlled by a vision-language model. The agent framework can create, schedule, and execute new tasks based on user text input. (Segmented VLA).</p>
+                    <a href="#" class="text-sky-600 hover:text-sky-800 font-semibold inline-flex items-center group">
+                        DEMO Video (Placeholder) 
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform">
+                          <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
                 </div>
                 <div class="card">
-                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">RSSI based Indoor Localisation System</h3>
-                     <p class="text-gray-600 mb-3 text-sm">(ESP, microcontrollers)</p>
-                    <p class="text-gray-600 mb-4">Designed a Wifi Enabled ESP-Based Localization for triangulation of ground bot position within a 10 cm error margin. Used orientation specific isotropy, RSSI strength and experimentally validated distance mapping.</p>
+                    <img src="https://placehold.co/600x400/38BDF8/FFFFFF?text=Indoor+Localisation&font=inter" alt="RSSI based Indoor Localisation System" class="project-image">
+                    <h3 class="text-2xl font-semibold text-sky-700 mb-2">RSSI based Indoor Localisation System</h3>
+                     <p class="text-slate-500 mb-3 text-sm font-medium">(ESP Microcontrollers, Wireless Communication)</p>
+                    <p class="text-slate-600 mb-4 leading-relaxed">Designed a Wifi Enabled ESP-Based Localization for triangulation of ground bot position within a 10 cm error margin. Used orientation specific isotropy, RSSI strength and experimentally validated distance mapping.</p>
                 </div>
                 <div class="card">
-                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">Inhomogeneity Detection using ANN</h3>
-                    <p class="text-gray-600 mb-3 text-sm">(Numerical Methods, ML for Inverse Cauchy type Problem)</p>
-                    <p class="text-gray-600 mb-4">Designed an algorithm to detect damages inside structures using partial boundary data and domain equations. Implemented an ANN to solve a 2D elliptic PDE and an alternating minimization algorithm to detect material coefficient changes.</p>
+                    <img src="https://placehold.co/600x400/7DD3FC/FFFFFF?text=ANN+Damage+Detection&font=inter" alt="Inhomogeneity Detection using ANN" class="project-image">
+                    <h3 class="text-2xl font-semibold text-sky-700 mb-2">Inhomogeneity Detection using ANN</h3>
+                    <p class="text-slate-500 mb-3 text-sm font-medium">(Numerical Methods, Machine Learning for Inverse Cauchy Problems)</p>
+                    <p class="text-slate-600 mb-4 leading-relaxed">Designed an algorithm to detect damages inside structures using partial boundary data and domain equations. Implemented an ANN to solve a 2D elliptic PDE and an alternating minimization algorithm to detect material coefficient changes.</p>
                 </div>
                 <div class="card">
-                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">D.R.D.O. SASES UAV Fleet Challenge</h3>
-                    <p class="text-gray-600 mb-3 text-sm">(SLAM, gmaps, Networked Swarm)</p>
-                    <p class="text-gray-600 mb-4">Developed an ad-hoc networked decentralised swarm of 4 drones for an autonomous vision-based search and rescue task. Used Mavros, OLSR mesh routing, and Google Cloud APIs for realtime mapping.</p>
+                    <img src="https://placehold.co/600x400/BAE6FD/0F172A?text=UAV+Fleet+Challenge&font=inter" alt="D.R.D.O. SASES UAV Fleet Challenge" class="project-image">
+                    <h3 class="text-2xl font-semibold text-sky-700 mb-2">D.R.D.O. SASES UAV Fleet Challenge</h3>
+                    <p class="text-slate-500 mb-3 text-sm font-medium">(SLAM, Google Maps API, Networked Swarm Robotics)</p>
+                    <p class="text-slate-600 mb-4 leading-relaxed">Developed an ad-hoc networked decentralised swarm of 4 drones for an autonomous vision-based search and rescue task. Used Mavros, OLSR mesh routing, and Google Cloud APIs for realtime mapping.</p>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="page hidden px-4">
+        <section id="contact" class="page hidden px-4 py-8">
             <h2 class="section-title">Get In Touch</h2>
-            <div class="card max-w-lg mx-auto">
-                <p class="text-gray-700 text-lg mb-6 text-center">
-                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of something exciting.
+            <div class="card max-w-xl mx-auto text-center">
+                <p class="text-slate-600 text-lg mb-8">
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of something exciting. Feel free to reach out!
                 </p>
-                <div class="space-y-4">
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-indigo-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        <a href="mailto:ps5387@nyu.edu" class="text-indigo-600 hover:underline">ps5387@nyu.edu</a>
+                <div class="space-y-6">
+                    <div class="flex items-center justify-center text-lg">
+                        <svg class="w-6 h-6 text-sky-500 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <a href="mailto:ps5387@nyu.edu" class="text-sky-600 hover:underline break-all">ps5387@nyu.edu</a>
                     </div>
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-indigo-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.308 1.154a11.034 11.034 0 005.37 5.37l1.154-2.308a1 1 0 011.21-.502l4.493 1.498A1 1 0 0119.72 19h3.28a2 2 0 01-2 2c-6.075 0-11-4.925-11-11S7.925 3 14 3a2 2 0 012 2v1"></path></svg> <span class="text-gray-700">+1 929-275-2186</span>
+                    <div class="flex items-center justify-center text-lg">
+                        <svg class="w-6 h-6 text-sky-500 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.308 1.154a11.034 11.034 0 005.37 5.37l1.154-2.308a1 1 0 011.21-.502l4.493 1.498A1 1 0 0119.72 19h3.28a2 2 0 01-2 2c-6.075 0-11-4.925-11-11S7.925 3 14 3a2 2 0 012 2v1"></path></svg> 
+                        <span class="text-slate-700">+1 929-275-2186</span>
                     </div>
-                     <div class="flex items-center">
-                        <svg class="w-6 h-6 text-indigo-500 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        <a href="#" class="text-indigo-600 hover:underline">LinkedIn (Add your LinkedIn URL here)</a>
+                     <div class="flex items-center justify-center text-lg">
+                        <svg class="w-6 h-6 text-sky-500 mr-3 shrink-0" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <a href="#" class="text-sky-600 hover:underline">LinkedIn (Your Profile URL)</a>
                     </div>
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-indigo-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <span class="text-gray-700">Brooklyn, NYC</span>
+                    <div class="flex items-center justify-center text-lg">
+                        <svg class="w-6 h-6 text-sky-500 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span class="text-slate-700">Brooklyn, NYC</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white text-center p-6 mt-12">
-        <p>&copy; <span id="currentYear"></span> Pranav Shukla. All Rights Reserved.</p>
-        <p class="text-sm text-gray-400">Designed with Tailwind CSS</p>
+    <footer class="bg-slate-800 text-slate-300 text-center p-8 mt-16">
+        <p class="mb-1">&copy; <span id="currentYear"></span> Pranav Shukla. All Rights Reserved.</p>
+        <p class="text-sm text-slate-400">Designed with Tailwind CSS &amp; Passion</p>
     </footer>
 
     <script>
         // JavaScript for page navigation and mobile menu
         const pages = document.querySelectorAll('.page');
-        const navLinks = document.querySelectorAll('.nav-link'); // Desktop nav links
+        const navLinks = document.querySelectorAll('header .nav-link'); 
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu .nav-link'); 
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const hamburgerIcon = mobileMenuButton.querySelector('svg:first-child');
         const closeIcon = mobileMenuButton.querySelector('svg:last-child');
 
         function showPage(pageId) {
-            // Hide all pages
             pages.forEach(page => {
                 page.classList.add('hidden');
             });
 
-            // Show the target page
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.remove('hidden');
             }
 
-            // Update active nav link for desktop
             navLinks.forEach(link => {
                 link.classList.remove('nav-link-active');
                 if (link.id === `nav-${pageId}`) {
                     link.classList.add('nav-link-active');
                 }
             });
+            
+            mobileNavLinks.forEach(link => {
+                link.classList.remove('nav-link-active'); 
+                // Example for mobile active state if needed:
+                // if (link.textContent.toLowerCase().replace(/\s+/g, '') === pageId.replace(/\s+/g, '')) {
+                //    link.classList.add('nav-link-active');
+                // }
+            });
 
-            // Scroll to top of page
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeMobileMenu() {
@@ -273,7 +294,6 @@
             closeIcon.classList.add('hidden');
         }
 
-        // Mobile menu toggle
         mobileMenuButton.addEventListener('click', () => {
             const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
             mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
@@ -282,11 +302,11 @@
             closeIcon.classList.toggle('hidden');
         });
         
-        // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Initialize: Show home page by default
-        showPage('home');
+        setTimeout(() => {
+            showPage('home');
+        }, 0);
     </script>
 
 </body>
