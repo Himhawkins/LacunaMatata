@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranav Shukla - Robotics & AI Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc; /* light mode track */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 4px;
+        }
+        html.dark ::-webkit-scrollbar-track {
+            background: #0f172a; /* dark mode track */
+        }
+        html.dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300">
+
+    <!-- Header & Nav -->
+    <header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Brand -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-slate-900 dark:text-white">Pranav Shukla</a>
+                </div>
+                <!-- Nav Links (Desktop) -->
+                <div class="hidden sm:flex sm:items-center sm:space-x-6">
+                    <a href="#projects" class="px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a>
+                    <a href="#skills" class="px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Skills</a>
+                    <a href="#education" class="px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Education</a>
+                    <a href="#experience" class="px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a>
+                    <button id="theme-toggle" class="p-2 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <svg id="theme-icon-dark" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                        <svg id="theme-icon-light" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="sm:hidden flex items-center">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-md text-slate-700 dark:text-slate-300">
+                        <!-- Icons will be injected by JS -->
+                    </button>
+                    <button id="mobile-menu-button" class="p-2 rounded-md text-slate-700 dark:text-slate-300">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden sm:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Skills</a>
+                <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Education</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="flex flex-col-reverse md:flex-row items-center justify-between py-16 md:py-24">
+            <div class="md:w-3/5 text-center md:text-left">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white">
+                    Pranav Shukla
+                </h1>
+                <p class="mt-4 text-xl text-slate-600 dark:text-slate-300">
+                    M.S. in Mechatronics & Robotics at NYU
+                </p>
+                <p class="mt-2 text-lg text-slate-600 dark:text-slate-300">
+                    Developing synchronous software and hardware to solve real-world problems in AI and Robotics.
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="mailto:pranav.himhawkins@gmail.com" class="inline-flex items-center gap-2 bg-teal-600 text-white hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 font-medium px-6 py-3 rounded-lg transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        Email Me
+                    </a>
+                    <a href="https://linkedin.com/in/pranav-shukla-iitkgp" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-slate-200 text-slate-800 dark:bg-slate-700 dark:text-slate-200 font-medium px-6 py-3 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                        LinkedIn
+                    </a>
+                </div>
+                <!-- New Media Links -->
+                <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-3">
+                    <a href="#projects" class="inline-flex items-center gap-2 text-sm font-medium text-teal-700 dark:text-teal-400 hover:text-teal-900 dark:hover:text-teal-300">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l-1.586-1.586a2 2 0 00-2.828 0L6 14m6-6l.01.01"></path></svg>
+                        Photo Gallery
+                    </a>
+                    <span class="text-slate-300 dark:text-slate-600">|</span>
+                    <a href="#projects" class="inline-flex items-center gap-2 text-sm font-medium text-teal-700 dark:text-teal-400 hover:text-teal-900 dark:hover:text-teal-300">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M4 18h10a2 2 0 002-2V8a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        Demo Videos
+                    </a>
+                </div>
+            </div>
+            <!-- Simple placeholder image -->
+            <div class="md:w-2/5 mt-10 md:mt-0 flex justify-center">
+                <img src="head.jpg" alt="AI Robotics" class="rounded-2xl shadow-xl w-full max-w-md object-cover">
+            </div>
+        </section>
+
+        <!-- Wrapper for layout -->
+        <div class="flex flex-col gap-20">
+            
+            <!-- New Section Order -->
+
+            <!-- Projects -->
+            <section id="projects" class="scroll-mt-20">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">Selected Projects</h2>
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 divide-y divide-slate-200 dark:divide-slate-700">
+                    
+                    <!-- Project Card -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">VLA-Powered Agentic Framework</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Developed a mobile manipulator (lift, differential drive, 5-DOF arm) controlled by a Vision-Language Model (VLA).</li>
+                                    <li>Engineered an agentic framework to create, schedule, and execute new tasks based on user text input (Segmented VLA).</li>
+                                    <li>Solved top-down navigation by integrating a Gemini vision model with A* path planning for automated VLM control.</li>
+                                    <li>Utilized local VLMs (Moondream) to solve search and interaction problems with described objects or people.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">Generalizable Imitation Learning (SO-100 Arm)</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Built an HPC pipeline (LeRobot) to train and deploy advanced imitation models (ACT, Diffusion, Groot) on an SO-100 arm.</li>
+                                    <li>Achieved successful generalization on complex tasks like 'making a sandwich' and 'kitchen cleanup' from teleoperated data.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">LLM-VLM Agent for Long-Horizon Robotic Task Decomposition</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Engineered a multi-modal agent using LLM-based function calling and VLM scene understanding (from an extrinsic camera) to schedule and execute long-horizon tasks like multi-object pick-and-place and navigation.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card (NEW) -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <video controls autoplay muted loop>
+                                    <source src="vqbet.webm" type="video/webm" class="rounded-lg object-cover w-full h-full">
+                                Your browser does not support the video tag.
+                                </video>
+                                <!-- <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full"> -->
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">Hybrid BC-RL Model for Corrective Imitation Learning</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Enhanced a VQBET Behavioral Cloning model with a residual Reinforcement Learning (RL) layer to significantly boost imitation accuracy and enable corrective behaviors.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card (NEW) -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">Mobile Pick-and-Place via Imitation Learning</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Applied imitation learning to an SO-100 mobile manipulator to perform complex, multi-stage service tasks (e.g., "get a coke from the kitchen," "clean the table") from a single command.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">Decentralized UAV Swarm (DRDO Challenge)</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Developed an ad-hoc networked, decentralized swarm of 4 drones for an autonomous vision-based search and rescue task using MAVROS and the OLSR mesh routing protocol.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="swram1.png" alt="Project Media (Image or Video)" class="fit-contain rounded-lg  w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">Heterogeneous Swarm Robotics (DRDO Challenge, 1st Runner Up)</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Developed a heterogeneous swarm of robots with multi-terrain coverage, capable of semi-autonomous SLAM-based building surveys.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card (NEW) -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">Autonomous Indoor Drone (Flipkart GRiD 2.0, Stage 3 Finalist)</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Implemented a VIO framework using fused stereo camera and IMU data for GPS-denied indoor localization and devised a waypoint generator to autonomously traverse windows.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card (NEW) -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">Decentralized Swarm Algorithms (Kilobots & Modular Bots)</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Deployed decentralized algorithms (ID allotment, shape formation) on 10 K-team Kilobots and designed prototypes for self-assembling modular bots.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">Low-Cost 3D LiDAR Design</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Engineered a novel 3D LiDAR by fusing a spinning 1D LiDAR, a Kalman Filter-stabilized IMU, and an absolute rotary encoder to achieve low-cost 3D point cloud mapping.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">High-Accuracy WiFi RSSI Indoor Localization</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Designed a WiFi-enabled, ESP-based localization system to triangulate a ground bot's position within a 10 cm error margin using orientation-specific RSSI-to-distance mapping.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">ANN for Structural Damage Detection</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Developed an ANN to solve a 2D elliptic PDE (Inverse Cauchy problem) from partial boundary data, successfully detecting structural damage and material inhomogeneity.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">MPPI-Based Optimal Control</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Designed and simulated a Model Predictive Path Integral (MPPI) controller for complex quadcopter maneuvers (target states, flips) and 3-DOF robotic arm end-effector control.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card (NEW) -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="https://placehold.co/400x225/f0fdfa/134e4a?text=Project+Media+(16:9)" alt="Project Media (Image or Video)" class="rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">Vision-Based Gerontechnology</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Built a `cv2-dnn` based face-tracking Raspberry Pi module to detect falls/accidents and trigger fail-safes.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card (NEW) -->
+                    <div class="p-6 md:p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-1 aspect-video rounded-lg bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                <img src="stitch.png"  alt="Project Media (Image or Video)" class="fit-contain rounded-lg object-cover w-full h-full">
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-1">Auto-Panorama Image Stitcher</h3>
+                                <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-base text-slate-700 dark:text-slate-300">
+                                    <li>Created an image stitcher using RANSAC and Harris corner detection to generate 360-degree panoramas.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills" class="scroll-mt-20">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">Skills & Expertise</h2>
+                <div class="p-6 md:p-8 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-semibold text-lg text-slate-800 dark:text-slate-200 mb-3">ML & AI</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">RL</span><span class="skill-tag">Behavioral Cloning</span><span class="skill-tag">Gemini</span><span class="skill-tag">VLA</span><span class="skill-tag">Moondream</span><span class="skill-tag">OpenAI API</span><span class="skill-tag">Ollama</span><span class="skill-tag">CrewAI</span><span class="skill-tag">ACT</span><span class="skill-tag">GROOT</span><span class="skill-tag">HPC</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-slate-800 dark:text-slate-200 mb-3">Robotics & CV</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag">ROS</span><span class="skill-tag">LeRobot</span><span class="skill-tag">SLAM</span><span class="skill-tag">VIO</span><span class="skill-tag">MPPI</span><span class="skill-tag">A*</span><span class="skill-tag">RANSAC</span><span class="skill-tag">Kalman Filter</span><span class="skill-tag">OpenCV</span><span class="skill-tag">MAVROS</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-slate-800 dark:text-slate-200 mb-3">Languages</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag">Python</span><span class="skill-tag">C++</span><span class="skill-tag">C</span><span class="skill-tag">Bash</span><span class="skill-tag">SQL</span><span class="skill-tag">VBA</span><span class="skill-tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-slate-800 dark:text-slate-200 mb-3">Hardware & Platforms</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag">Mechatronics</span><span class="skill-tag">Control Systems</span><span class="skill-tag">Arduino</span><span class="skill-tag">Raspberry Pi</span><span class="skill-tag">ESP</span><span class="skill-tag">Linux</span><span class="skill-tag">Gazebo</span><span class="skill-tag">MATLAB</span><span class="skill-tag">Simulink</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section id="education" class="scroll-mt-20">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">Education</h2>
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 divide-y divide-slate-200 dark:divide-slate-700">
+                    <!-- Education Item -->
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-start flex-col sm:flex-row">
+                            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">New York University (NYU) Tandon School of Engineering</h3>
+                            <span class="flex-shrink-0 text-sm font-medium text-slate-600 dark:text-slate-400 mt-1 sm:mt-0">2024 – Present</span>
+                        </div>
+                        <p class="text-base text-slate-700 dark:text-slate-300">M.S. in Mechatronics and Robotics</p>
+                    </div>
+                    <!-- Education Item -->
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-start flex-col sm:flex-row">
+                            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Indian Institute of Technology (IIT) Kharagpur</h3>
+                            <span class="flex-shrink-0 text-sm font-medium text-slate-600 dark:text-slate-400 mt-1 sm:mt-0">2017 – 2022</span>
+                        </div>
+                        <p class="text-base text-slate-700 dark:text-slate-300">B.Tech and M.Tech (Dual Degree) in Structural Engineering, Department of Civil Engineering</p>
+                        <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+                            <li>Minor: Computer Science and Engineering</li>
+                            <li>Micro Specialization: Embedded Control, Software and Design</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Experience -->
+            <section id="experience" class="scroll-mt-20">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">Professional Experience</h2>
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 divide-y divide-slate-200 dark:divide-slate-700">
+                    
+                    <!-- Experience Item -->
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-start flex-col sm:flex-row">
+                            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Graduate Adjunct - Automatic Control Lab</h3>
+                            <span class="flex-shrink-0 text-sm font-medium text-slate-600 dark:text-slate-400 mt-1 sm:mt-0">NYU Tandon, NY | Jan 2025 – Present</span>
+                        </div>
+                        <p class="mt-2 text-base text-slate-700 dark:text-slate-300">Teaching ME-UY 3411, covering experiments in data acquisition, PID & LQR controls, and real-time system analysis using MATLAB and Simulink.</p>
+                    </div>
+
+                    <!-- Experience Item -->
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-start flex-col sm:flex-row">
+                            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Business Analyst - Business Intelligence Unit</h3>
+                            <span class="flex-shrink-0 text-sm font-medium text-slate-600 dark:text-slate-400 mt-1 sm:mt-0">Axis Bank, Mumbai, India | 2022 – 2024</span>
+                        </div>
+                        <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+                            <li>Developed pre-qualified banking product strategies using customer demographics, delinquency, and bureau credit data.</li>
+                            <li>Ran simulations to identify database enhancements and coordinated with Business, DE, DS, and Risk teams.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience Item -->
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-start flex-col sm:flex-row">
+                            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Data Science Intern - Business Intelligence Unit</h3>
+                            <span class="flex-shrink-0 text-sm font-medium text-slate-600 dark:text-slate-400 mt-1 sm:mt-0">Axis Bank, Mumbai, India | Summer 2021</span>
+                        </div>
+                        <p class="mt-2 text-base text-slate-700 dark:text-slate-300">Implemented and validated 3 ML models (DT, MLP, Random Forest) for credit score prediction, optimized for biased datasets using alternative data streams.</p>
+                    </div>
+
+                    <!-- Experience Item -->
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-start flex-col sm:flex-row">
+                            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Embedded Team Head — Swarm Robotics Research Group</h3>
+                            <span class="flex-shrink-0 text-sm font-medium text-slate-600 dark:text-slate-400 mt-1 sm:mt-0">IIT Kharagpur, India | 2019 – 2022</span>
+                        </div>
+                        <ul class="mt-2 list-disc list-outside pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+                            <li>Led the embedded team in developing the hardware stack and control systems for vision-based swarm-bots (ROS, Arduino).</li>
+                            <li>Managed a budget of 16.55 Lakhs INR (~$20,000 USD), overseeing procurement, logistics, and deployment.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Leadership -->
+            <section id="leadership" class="scroll-mt-20">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">Extracurricular Leadership</h2>
+                <div class="p-6 md:p-8 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
+                    <ul class="list-disc list-outside pl-5 space-y-2 text-slate-700 dark:text-slate-300">
+                        <li><span class="font-semibold">Teaching Assistant:</span> Monte Carlo Simulations; Construction Planning & Management (IIT Kharagpur)</li>
+                        <li><span class="font-semibold">Governor, Technology Literary Society:</span> Led 80+ students and served as Editor of the campus magazine, *Alankar*.</li>
+                        <li><span class="font-semibold">Captain, Product Design Team:</span> Led hall team for the Technology General Championship (2019-20).</li>
+                        <li><span class="font-semibold">Volunteer, National Service Scheme:</span> Conducted various village camps, surveys, and clothes donation drives.</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-slate-200 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <p class="text-slate-600 dark:text-slate-400">&copy; <span id="current-year"></span> Pranav Shukla. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JS for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Theme Toggle ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const darkIcon = document.getElementById('theme-icon-dark');
+            const lightIcon = document.getElementById('theme-icon-light');
+            const html = document.documentElement;
+
+            // Set mobile icon content
+            themeToggleMobile.innerHTML = darkIcon.outerHTML + lightIcon.outerHTML;
+            
+            const darkIconMobile = themeToggleMobile.querySelector('#theme-icon-dark');
+            const lightIconMobile = themeToggleMobile.querySelector('#theme-icon-light');
+
+            // Function to set theme
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    html.classList.add('dark');
+                    darkIcon.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
+                    darkIconMobile.classList.add('hidden');
+                    lightIconMobile.classList.remove('hidden');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    html.classList.remove('dark');
+                    darkIcon.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
+                    darkIconMobile.classList.remove('hidden');
+                    lightIconMobile.classList.add('hidden');
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            // Check for saved theme
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+                setTheme('dark');
+            } else {
+                setTheme('light');
+            }
+
+            // Event listeners for theme toggles
+            themeToggle.addEventListener('click', () => {
+                setTheme(html.classList.contains('dark') ? 'light' : 'dark');
+            });
+            themeToggleMobile.addEventListener('click', () => {
+                setTheme(html.classList.contains('dark') ? 'light' : 'dark');
+            });
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- Set Current Year in Footer ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // --- Apply Tailwind classes dynamically ---
+            // Skill tags
+            document.querySelectorAll('.skill-tag').forEach(tag => {
+                tag.className = "inline-block bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-300 text-sm font-medium px-3 py-1 rounded-full";
+            });
+            
+            // Project cards
+            /* Removed project card styling as it's now inline */
+            
+            // Project titles
+            /* Removed project title styling as it's now inline */
+            
+            // Project descriptions
+            /* Removed project description styling as it's now inline */
+        });
+    </script>
+</body>
+</html>
